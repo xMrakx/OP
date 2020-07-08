@@ -1,6 +1,6 @@
 PROGRAM Encryption(INPUT, OUTPUT);
-{Переводит символы из INPUT в код согласно Chiper 
- и печатает новые символы в OUTPUT}
+{ГЏГҐГ°ГҐГўГ®Г¤ГЁГІ Г±ГЁГ¬ГўГ®Г«Г» ГЁГ§ INPUT Гў ГЄГ®Г¤ Г±Г®ГЈГ«Г Г±Г­Г® Chiper 
+ ГЁ ГЇГҐГ·Г ГІГ ГҐГІ Г­Г®ГўГ»ГҐ Г±ГЁГ¬ГўГ®Г«Г» Гў OUTPUT}
 CONST
   Len = 20;
 TYPE
@@ -14,7 +14,7 @@ VAR
   ChiperFile: TEXT;
  
 PROCEDURE Initialize(VAR Code: Chiper; VAR ChiperFile: TEXT);
-{Присвоить Code шифр замены}
+{ГЏГ°ГЁГ±ГўГ®ГЁГІГј Code ГёГЁГґГ° Г§Г Г¬ГҐГ­Г»}
 VAR
   Ch, Symbol: CHAR;
   Error: BOOLEAN;
@@ -57,11 +57,11 @@ BEGIN {Initialize}
 END;  {Initialize}
  
 PROCEDURE Encode(VAR S: Str);
-{Выводит символы из Code, соответствующие символам из S}
+{Г‚Г»ГўГ®Г¤ГЁГІ Г±ГЁГ¬ГўГ®Г«Г» ГЁГ§ Code, Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГѕГ№ГЁГҐ Г±ГЁГ¬ГўГ®Г«Г Г¬ ГЁГ§ S}
 VAR
   Index: 1 .. Len;
 BEGIN {Encode}
-  FOR Index := 1 TO I
+  FOR Index := 1 TO Len
   DO
     IF S[Index] IN ['A' .. 'Z']
     THEN
@@ -77,12 +77,12 @@ END;  {Encode}
  
 BEGIN {Encryption}
   ASSIGN(ChiperFile, 'ChiperFile.txt');
-  {Инициализировать Code}
+  {Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ ГІГј Code}
   Initialize(Code, ChiperFile);
   WHILE NOT EOF
   DO
     BEGIN
-      {читать строку в Msg и распечатать ее}
+      {Г·ГЁГІГ ГІГј Г±ГІГ°Г®ГЄГі Гў Msg ГЁ Г°Г Г±ГЇГҐГ·Г ГІГ ГІГј ГҐГҐ}
       I := 0;
       WHILE NOT EOLN AND (I < Len)
       DO
@@ -93,7 +93,7 @@ BEGIN {Encryption}
         END;
       READLN(INPUT);
       WRITELN(OUTPUT);
-      {распечатать кодированное сообщение}
+      {Г°Г Г±ГЇГҐГ·Г ГІГ ГІГј ГЄГ®Г¤ГЁГ°Г®ГўГ Г­Г­Г®ГҐ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ}
       Encode(Msg)
     END
 END.  {Encryption}
