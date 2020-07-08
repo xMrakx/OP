@@ -61,7 +61,7 @@ PROCEDURE Encode(VAR S: Str);
 VAR
   Index: 1 .. Len;
 BEGIN {Encode}
-  FOR Index := 1 TO Len
+  FOR Index := 1 TO I
   DO
     IF S[Index] IN ['A' .. 'Z']
     THEN
