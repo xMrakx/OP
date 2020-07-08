@@ -43,7 +43,7 @@ BEGIN {PrintSymbol}
         BEGIN
           IF Count IN Code
           THEN
-            WRITE('@')
+            WRITE('#')
           ELSE
             WRITE(' ');
           IF Count MOD 5 = 0
