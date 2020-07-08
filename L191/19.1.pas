@@ -6,7 +6,7 @@ VAR
   I, D: INTEGER;
   IsPrime: BOOLEAN;
   Sieve: SET OF 0 .. Max;
-  BEGIN {Prime}
+BEGIN {Prime}
   Sieve := [Min .. Max];
   WRITE('Simple- ');
   WHILE (I <= Max)
