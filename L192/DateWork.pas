@@ -43,14 +43,32 @@ IMPLEMENTATION
   PROCEDURE ReadDate (VAR FIn: TEXT; VAR Result: Date);
   BEGIN{ReadDate}
     ReadMonth(FIn, Result.Mo);
-    READ(FIn, Result.Day)
+    IF NOT EOLN(FIn)
+    THEN
+      READ(FIn, Result.Day)
+    ELSE
+      WRITELN(OUTPUT, 'Day Num, not found')
   END;{ReadDate}
   
   PROCEDURE ReadMonth(VAR FIn: TEXT; VAR Mo: Month);
   VAR
     Ch1, Ch2, Ch3: CHAR;
   BEGIN{ReadMonth}
-    READ(FIn, Ch1, Ch2, Ch3);
+    IF NOT EOLN(FIn)
+    THEN
+      READ(FIn, Ch1);
+    ELSE
+      Mo := NoMonth;  
+    IF NOT EOLN(FIn)
+    THEN
+      READ(FIn, Ch2)
+    ELSE
+      Mo := NoMonth;  
+    IF NOT EOLN(FIn)
+    THEN
+      READ(FIn, Ch3)
+    ELSE
+      Mo := NoMonth;      
     IF (Ch1 = 'J') AND (Ch2 = 'A') AND (Ch3 = 'N') THEN Mo := Jan ELSE
     IF (Ch1 = 'F') AND (Ch2 = 'E') AND (Ch3 = 'B') THEN Mo := Feb ELSE
     IF (Ch1 = 'M') AND (Ch2 = 'A') AND (Ch3 = 'R') THEN Mo := Mar ELSE
