@@ -17,6 +17,8 @@ BEGIN {ReadDigit}
       IF Ch = '7' THEN D := 7 ELSE
       IF Ch = '8' THEN D := 8 ELSE
       IF Ch = '9' THEN D := 9
+        ELSE
+          D := -1
     END  
   ELSE
     D := -1
