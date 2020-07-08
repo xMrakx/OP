@@ -21,11 +21,9 @@ BEGIN {ReadDigit}
 END;  {ReadDigit}
 VAR
   CurNum, Sum: INTEGER;
-  Found: BOOLEAN;
 BEGIN {Sum}
   Sum := 0;
   CurNum := 0;
-  Found := NOT EOLN;
   WHILE (CurNum <> -1)
   DO
     BEGIN
@@ -34,5 +32,5 @@ BEGIN {Sum}
       THEN
         Sum := Sum + CurNum
     END;
-  WRITELN('Сумма цифр равна ', Sum:2) 
+  WRITELN('Г‘ГіГ¬Г¬Г  Г¶ГЁГґГ° Г°Г ГўГ­Г  ', Sum:2) 
 END. {Sum}
