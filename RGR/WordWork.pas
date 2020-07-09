@@ -2,8 +2,8 @@ UNIT WordWork;
 INTERFACE
 VAR
   Letter: SET OF CHAR;
-  PROCEDURE SearchWord(VAR F: TEXT; VAR Word: STRING); {ищет слово в входном фаиле}
-  PROCEDURE ChangeRegister(VAR Ch: CHAR); {изменяет регистр символа с заглавногого на строчный}
+  PROCEDURE SearchWord(VAR F: TEXT; VAR Word: STRING); {┬и├й┬е├в ├б┬л┬о┬в┬о ┬в ┬в├е┬о┬д┬н┬о┬м ├д┬а┬и┬л┬е}
+  PROCEDURE ChangeRegister(VAR Ch: CHAR); {┬и┬з┬м┬е┬н├п┬е├в ├а┬е┬г┬и├б├в├а ├б┬и┬м┬в┬о┬л┬а ├б ┬з┬а┬г┬л┬а┬в┬н┬о┬г┬о┬г┬о ┬н┬а ├б├в├а┬о├з┬н├л┬й}
 
 IMPLEMENTATION
   PROCEDURE SearchWord(VAR F: TEXT; VAR Word: STRING);
@@ -41,18 +41,17 @@ IMPLEMENTATION
     IF (Ch IN ['A' .. 'Z'])
     THEN
       Ch := CHR(ORD(Ch) + 32);
-    IF (Ch IN ['А' .. 'П'])
+    IF (Ch IN ['тВм' .. '┬П'])
     THEN
       Ch := CHR(ORD(Ch) + 32);
-     IF (Ch IN ['П' .. 'Я'])
+     IF (Ch IN ['┬П' .. '┼╕'])
     THEN
       Ch := CHR(ORD(Ch) + 80);
-    IF ((Ch = 'Ё') OR (Ch = 'ё'))
+    IF ((Ch = '├░') OR (Ch = '├▒'))
     THEN
-      Ch := 'е'
+      Ch := '┬е'
   END;  {ChangeRegister}
-
-
+  
 BEGIN {WordWork}
-  Letter := ['A' .. 'z', 'А' .. 'п', 'р' .. 'я', 'Ё', 'ё']
+  Letter := ['A' .. 'z', 'тВм' .. '┬п', '├а' .. '├п', '├░', '├▒']
 END.  {WordWork}
