@@ -31,7 +31,7 @@ IMPLEMENTATION
         THEN
           READ(F, Ch)
         ELSE
-          Ch := ' ';  
+          Ch := ' ';
         Finde := (Ch IN Letter);
       END;
   END;  {SearchWord}
@@ -40,70 +40,13 @@ IMPLEMENTATION
   BEGIN {ChangeRegister}
     IF (Ch IN ['A' .. 'Z'])
     THEN
-      CASE Ch OF
-        'A': Ch := 'a';
-        'B': Ch := 'b';
-        'C': Ch := 'c';
-        'D': Ch := 'd';
-        'E': Ch := 'e';
-        'F': Ch := 'f';
-        'G': Ch := 'g';
-        'H': Ch := 'h';
-        'I': Ch := 'i';
-        'J': Ch := 'j';
-        'K': Ch := 'k';
-        'L': Ch := 'l';
-        'M': Ch := 'm';
-        'N': Ch := 'n';
-        'O': Ch := 'o';
-        'P': Ch := 'p';
-        'Q': Ch := 'q';
-        'R': Ch := 'r';
-        'S': Ch := 's';
-        'T': Ch := 't';
-        'U': Ch := 'u';
-        'V': Ch := 'v';
-        'W': Ch := 'w';
-        'X': Ch := 'x';
-        'Y': Ch := 'y';
-        'Z': Ch := 'z'
-      END;
-    IF (Ch IN ['Ä' .. 'ü'])
+      Ch := CHR(ORD(Ch) + 32);
+    IF (Ch IN ['Ä' .. 'è'])
     THEN
-      CASE Ch OF
-        'Ä': Ch := '†';
-        'Å': Ch := '°';
-        'Ç': Ch := '¢';
-        'É': Ch := '£';
-        'Ñ': Ch := '§';
-        'Ö': Ch := '•';
-        'Ü': Ch := '¶';
-        'á': Ch := 'ß';
-        'à': Ch := '®';
-        'â': Ch := '©';
-        'ä': Ch := '™';
-        'ã': Ch := '´';
-        'å': Ch := '¨';
-        'ç': Ch := '≠';
-        'é': Ch := 'Æ';
-        'è': Ch := 'Ø';
-        'ê': Ch := '‡';
-        'ë': Ch := '·';
-        'í': Ch := '‚';
-        'ì': Ch := '„';
-        'î': Ch := '‰';
-        'ï': Ch := 'Â';
-        'ñ': Ch := 'Ê';
-        'ó': Ch := 'Á';
-        'ò': Ch := 'Ë';
-        'ô': Ch := 'È';
-        'ö': Ch := 'Í';
-        'õ': Ch := 'Î';
-        'ú': Ch := 'Ï';
-        'ù': Ch := 'Ì';
-        'û': Ch := 'Ó';
-        'ü': Ch := 'Ô'
-      END;
+      Ch := CHR(ORD(Ch) + 32);
+     IF (Ch IN ['è' .. 'ü'])
+    THEN
+      Ch := CHR(ORD(Ch) + 80);
     IF ((Ch = '') OR (Ch = 'Ò'))
     THEN
       Ch := '•'
@@ -111,5 +54,5 @@ IMPLEMENTATION
 
 
 BEGIN {WordWork}
-  Letter := ['A' .. 'z', 'Ä' .. 'Ô', '', 'Ò']
+  Letter := ['A' .. 'z', 'Ä' .. 'Ø', '‡' .. 'Ô', '', 'Ò']
 END.  {WordWork}

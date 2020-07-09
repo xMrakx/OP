@@ -1,6 +1,5 @@
 PROGRAM CountWords(INPUT, OUTPUT);
-USES
-  WordWork, TreeWork;
+USES WordWork, TreeWork;
 CONST
   WordLim = 100;
 VAR
@@ -21,13 +20,13 @@ BEGIN {CountWords}
   WHILE ((WORK) AND (Lim <> WordLim))
   DO
     BEGIN
-      {┬Н┬а┬й├в┬и ├б┬л┬о┬в┬о ┬и ┬п┬о┬л┬о┬ж┬и├в├м ┬е┬г┬о ┬в Cont}
+      {Найти слово и положить его в Cont}
       SearchWord(FIn, Cont);
       IF (Cont <> '')
       THEN
         BEGIN
           Lim := Lim +1;
-          {тАЪ├б├в┬а┬в┬и├в├м ├б┬о┬д┬е├а┬ж┬и┬м┬о┬е Cont ┬в ┬д┬е├а┬е┬в┬о}
+          {Вставить содержимое Cont в дерево}
           Insert(Root, Cont);
           Cont := '';
           Work := NOT EOF(FIn)
@@ -35,7 +34,7 @@ BEGIN {CountWords}
        ELSE
          Work := FALSE
     END;
-  {┬П┬е├з├в├м ┬д┬е├а┬е┬в┬а ┬в ├д┬а┬и┬л ├б├в┬а├в┬и├б├в┬и┬к┬и, ┬и ┬о├з┬и├б├в┬к┬а ┬д├а┬е┬в┬а}
+  {Печть дерева в фаил статистики, и очистка древа}
   REWRITE(Stats);
   PrintTree(Root, Stats);
   CLOSE(FIn);
