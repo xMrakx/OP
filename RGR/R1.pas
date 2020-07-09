@@ -37,6 +37,7 @@ BEGIN {CountWords}
   {Печть дерева в фаил статистики, и очистка древа}
   REWRITE(Stats);
   PrintTree(Root, Stats);
+  CleanTree(Root);
   CLOSE(FIn);
   CLOSE(Stats)
 END. {CountWords}

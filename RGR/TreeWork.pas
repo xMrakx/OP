@@ -10,7 +10,8 @@ INTERFACE
 VAR
   WordCounter: INTEGER;
   PROCEDURE Insert(VAR Ptr: Tree; Str: STRING); {Помещат строку в дерево, ведя учет количества вхождений}
-  PROCEDURE PrintTree(VAR Ptr: Tree; VAR F: TEXT); {заполнят фаил статистики словаими из дерева и очищает древо}
+  PROCEDURE PrintTree(VAR Ptr: Tree; VAR F: TEXT); {заполнят фаил статистики словаими из дерева}
+  PROCEDURE CleanTree(VAR Ptr: Tree); {очищает дерево}  
 
 IMPLEMENTATION
   PROCEDURE Insert(VAR Ptr: Tree; Str: STRING);
@@ -50,6 +51,17 @@ IMPLEMENTATION
         PrintTree(Ptr^.RLink, F)
       END
   END;  {PrintTree}
+
+  PROCEDURE CleanTree(VAR Ptr: Tree);
+  BEGIN {CleanTree}
+    IF (Ptr <> NIL)
+    THEN
+      BEGIN
+        CleanTree(Ptr^.LLink);
+        CleanTree(Ptr^.RLink);
+        DISPOSE(Ptr)
+      END
+  END;  {CleanTree}
 
 BEGIN {TreeWork}
 END.  {TreeWork}
